@@ -10,7 +10,7 @@ Where response.json is valid response from a suggestions request. pystache must 
 
 # Other tools:
 
-There two Gists might also be helpful:
+These two Gists might also be helpful:
 
 https://gist.github.com/akdh/65c6391eb85b553fcf12
 
