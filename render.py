@@ -6,7 +6,7 @@ if len(sys.argv) != 2:
 
 suggestions_filename = sys.argv[1]
 
-with open('endorsement.csv') as f:
+with open('tags.csv') as f:
     reader = csv.reader(f)
     tags = [row[1] for row in reader]
 
