@@ -27,8 +27,9 @@
             <input type="hidden" name="start_ts">
             {{#documents}}
             <div>
-                <input type="hidden" name="doc{{ id }}_rating_ts">
-                <input type="hidden" name="doc{{ id }}_tags_ts">
+                <input type="hidden" name="item{{ index }}_rating_ts">
+                <input type="hidden" name="item{{ index }}_tags_ts">
+                <input type="hidden" name="item{{ index }}_docid" value="{{ id }}">
                 <h2><a href="{{ url }}" target="_blank">{{ title }}</a></h2>
                 <p>{{ description }}</p>
                 <p><a href="{{ url }}" target="_blank">{{ url }}</a></p>
@@ -36,25 +37,25 @@
                 <legend>Rating</legend>
                 <div class="btn-group form-group" data-toggle="buttons">
                     <label class="btn btn-default">
-                        <input type="radio" value="1" name="doc{{ id }}_rating"> 1
+                        <input type="radio" value="1" name="item{{ index }}_rating"> 1
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" value="2" name="doc{{ id }}_rating"> 2
+                        <input type="radio" value="2" name="item{{ index }}_rating"> 2
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" value="3" name="doc{{ id }}_rating"> 3
+                        <input type="radio" value="3" name="item{{ index }}_rating"> 3
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" value="4" name="doc{{ id }}_rating"> 4
+                        <input type="radio" value="4" name="item{{ index }}_rating"> 4
                     </label>
                     <label class="btn btn-default">
-                        <input type="radio" value="5" name="doc{{ id }}_rating"> 5
+                        <input type="radio" value="5" name="item{{ index }}_rating"> 5
                     </label>
                 </div>
                 </fieldset>
                 <div class="form-group">
-                    <label for="doc{{ id }}_tags">Tags <a href="" data-toggle="modal" data-target="#tagsHelp">[?]</a></label>
-                    <select multiple name="doc{{ id }}_tags" id="doc{{ id }}_tags" class="typeahead from-control"></select>
+                    <label for="item{{ index }}_tags">Tags <a href="" data-toggle="modal" data-target="#tagsHelp">[?]</a></label>
+                    <select multiple name="item{{ index }}_tags" id="item{{ index }}_tags" class="typeahead from-control"></select>
                 </div>
             </div>
             {{/documents}}

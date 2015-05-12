@@ -18,10 +18,12 @@ conn.row_factory = sqlite3.Row
 cur = conn.cursor()
 
 rows = []
-for id in data['suggestions']:
+for index in range(len(data['suggestions'])):
+    id = data['suggestions'][index]
     cur.execute('select id, title, url, description from docs where id = ?', (id, ))
-    row = cur.fetchone()
-    rows.append(dict(row))
+    row = dict(cur.fetchone())
+    row['index'] = index
+    rows.append(rows)
 
 conn.close()
 
