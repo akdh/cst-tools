@@ -1,0 +1,273 @@
+id,city,state
+151,New York City,NY
+152,Chicago,IL
+153,"Washington, D.C.",DC
+154,Boston,MA
+155,Philadelphia,PA
+156,Dallas,TX
+157,Miami,FL
+158,Houston,TX
+159,Atlanta,GA
+160,Detroit,MI
+161,Seattle,WA
+162,Riverside,CA
+163,Phoenix,AZ
+164,Minneapolis,MN
+165,Cleveland,OH
+166,Denver,CO
+167,San Diego,CA
+168,Portland,OR
+169,Orlando,FL
+170,St. Louis,MO
+171,Tampa,FL
+172,Pittsburgh,PA
+173,Sacramento,CA
+174,Charlotte,NC
+175,Kansas City,MO
+176,Salt Lake City,UT
+177,Columbus,OH
+178,Indianapolis,IN
+179,Las Vegas,NV
+180,San Antonio,TX
+181,Cincinnati,OH
+182,Milwaukee,WI
+183,Raleigh,NC
+184,Nashville,TN
+185,Austin,TX
+186,Virginia Beach,VA
+187,Greensboro,NC
+188,Jacksonville,FL
+189,Hartford,CT
+190,Louisville,KY
+191,New Orleans,LA
+192,Grand Rapids,MI
+193,Greenville,SC
+194,Greenville,SC
+195,Memphis,TN
+196,Oklahoma City,OK
+197,Birmingham,AL
+198,Richmond,VA
+199,Harrisburg,PA
+200,Buffalo,NY
+201,Rochester,NY
+202,Albany,NY
+203,Albuquerque,NM
+204,Tulsa,OK
+205,Fresno,CA
+206,Knoxville,TN
+207,Dayton,OH
+208,El Paso,TX
+209,Tucson,AZ
+210,Cape Coral,FL
+211,Honolulu,HI
+212,Chattanooga,TN
+213,Omaha,NE
+214,Port Saint Lucie,FL
+215,Columbia,SC
+216,Little Rock,AR
+217,McAllen,TX
+218,Bakersfield,CA
+219,Madison,WI
+220,Baton Rouge,LA
+221,Modesto,CA
+222,Des Moines,IA
+223,Syracuse,NY
+224,South Bend,IN
+225,Boise,ID
+226,Huntington,WV
+227,Lexington,KY
+228,Charleston,SC
+229,Springfield,MA
+230,Huntsville,AL
+231,Spokane,WA
+232,Wichita,KS
+233,Jackson,MS
+234,Colorado Springs,CO
+235,Youngstown,OH
+236,Toledo,OH
+237,Portland,ME
+238,Fort Wayne,IN
+239,Lakeland,FL
+240,Lafayette,LA
+241,Mobile,AL
+242,Visalia,CA
+243,Reno,NV
+244,Augusta,GA
+245,Scranton,PA
+246,Palm Bay,FL
+247,Fayetteville,NC
+248,Lansing,MI
+249,Springfield,MO
+250,Lancaster,PA
+251,Kalamazoo,MI
+252,Corpus Christi,TX
+253,Savannah,GA
+254,Johnson City,TN
+255,Columbus,GA
+256,Fayetteville,AR
+257,Davenport,IA
+258,Asheville,NC
+259,Pensacola,FL
+260,Myrtle Beach,SC
+261,Shreveport,LA
+262,Rockford,IL
+263,Brownsville,TX
+264,Santa Maria,CA
+265,Salinas,CA
+266,Killeen,TX
+267,Cedar Rapids,IA
+268,Macon,GA
+269,Peoria,IL
+270,Hickory,NC
+271,Beaumont,TX
+272,Tallahassee,FL
+273,Appleton,WI
+274,Anchorage,AK
+275,Saginaw,MI
+276,Salisbury,MD
+277,Gulfport,MS
+278,Montgomery,AL
+279,Erie,PA
+280,Green Bay,WI
+281,Eugene,OR
+282,Gainesville,FL
+283,Ocala,FL
+284,Lincoln,NE
+285,Lubbock,TX
+286,Springfield,IL
+287,Evansville,IN
+288,Fort Collins,CO
+289,Roanoke,VA
+290,Rocky Mount,NC
+291,Wausau,WI
+292,Utica,NY
+293,Midland,TX
+294,Medford,OR
+295,Longview,TX
+296,Fort Smith,AR
+297,Amarillo,TX
+298,Duluth,MN
+299,San Luis Obispo,CA
+300,Clarksville,TN
+301,Kennewick,WA
+302,Tyler,TX
+303,Bloomsburg,PA
+304,Wilmington,NC
+305,Laredo,TX
+306,Waco,TX
+307,Lynchburg,VA
+308,Monroe,LA
+309,Dothan,AL
+310,Rochester,MN
+311,Binghamton,NY
+312,Crestview,FL
+313,Harrisonburg,VA
+314,Yakima,WA
+315,Redding,CA
+316,Lafayette,IN
+317,Fargo,ND
+318,Sioux Falls,SD
+319,State College,PA
+320,Topeka,KS
+321,College Station,TX
+322,Champaign,IL
+323,Tuscaloosa,AL
+324,Idaho Falls,ID
+325,Bloomington,IL
+326,Charlottesville,VA
+327,Chico,CA
+328,Lima,OH
+329,Columbia,MO
+330,Johnstown,PA
+331,Mansfield,OH
+332,Bowling Green,KY
+333,Burlington,VT
+334,Prescott,AZ
+335,Houma,LA
+336,Bloomington,IN
+337,Eau Claire,WI
+338,Pueblo,CO
+339,Joplin,MO
+340,Florence,SC
+341,Bellingham,WA
+342,Lake Charles,LA
+343,Yuma,AZ
+344,New Bern,NC
+345,Hilton Head Island,SC
+346,Morgantown,WV
+347,Elmira,NY
+348,Panama City,FL
+349,Jacksonville,NC
+350,Sioux City,IA
+351,Bend,OR
+352,Blacksburg,VA
+353,El Centro,CA
+354,Terre Haute,IN
+355,Waterloo,IA
+356,Jonesboro,AR
+357,Abilene,TX
+358,Rapid City,SD
+359,Billings,MT
+360,Jackson,MI
+361,Kahului,HI
+362,Albany,GA
+363,Williamsport,PA
+364,Alexandria,LA
+365,Parkersburg,WV
+366,Bangor,ME
+367,Ithaca,NY
+368,Wichita Falls,TX
+369,Jefferson City,MO
+370,Texarkana,TX
+371,Grand Junction,CO
+372,Florence,AL
+373,Hattiesburg,MS
+374,Wheeling,WV
+375,Saint George,UT
+376,Valdosta,GA
+377,Homosassa Springs,FL
+378,Cape Girardeau,MO
+379,Flagstaff,AZ
+380,Manhattan,KS
+381,La Crosse,WI
+382,Lawton,OK
+383,Sierra Vista,AZ
+384,Jackson,TN
+385,Hot Springs,AR
+386,Pittsfield,MA
+387,Farmington,NM
+388,Logan,UT
+389,Altoona,PA
+390,Carbondale,IL
+391,Beckley,WV
+392,Goldsboro,NC
+393,Mankato,MN
+394,Rome,GA
+395,Watertown,NY
+396,Bismarck,ND
+397,Kokomo,IN
+398,Victoria,TX
+399,Anniston,AL
+400,Owensboro,KY
+401,Sheboygan,WI
+402,San Angelo,TX
+403,Brunswick,GA
+404,Wenatchee,WA
+405,Missoula,MT
+406,Decatur,IL
+407,Sumter,SC
+408,Gadsden,AL
+409,Cumberland,MD
+410,Fond du Lac,WI
+411,Fairbanks,AK
+412,Grand Forks,ND
+413,Sebring,FL
+414,Dubuque,IA
+415,Cheyenne,WY
+416,Pocatello,ID
+417,Grand Island,NE
+418,Great Falls,MT
+419,Danville,IL
+420,Casper,WY
+421,Walla Walla,WA
+422,Lewiston,ID
