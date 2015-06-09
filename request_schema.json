@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        },
+        "lat": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "lng",
+        "lat",
+        "name",
+        "state"
+      ]
+    },
+    "person": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "age": {
+          "type": "number"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "preferences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "documentId": {
+                "type": "string"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "documentId",
+              "rating"
+            ]
+          }
+        }
+      },
+      "required": [
+        "preferences"
+      ]
+    },
+    "duration": {
+      "type": "string",
+      "enum": [
+        "Night out",
+        "Day trip",
+        "Weekend trip",
+        "Longer"
+      ]
+    },
+    "trip_type": {
+      "type": "string",
+      "enum": [
+        "Business",
+        "Holiday",
+        "Other"
+      ]
+    },
+    "season": {
+      "type": "string",
+      "enum": [
+        "Winter",
+        "Summer",
+        "Autumn",
+        "Spring"
+      ]
+    },
+    "group": {
+      "type": "string",
+      "enum": [
+        "Alone",
+        "Friends",
+        "Family",
+        "Other"
+      ]
+    }
+  },
+  "required": [
+    "location",
+    "person"
+  ]
+}
