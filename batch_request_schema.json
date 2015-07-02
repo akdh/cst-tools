@@ -2,6 +2,15 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "id": {
+        "type": "number"
+    },
+    "candidates": {
+        "type": "array",
+        "items": {
+            "type": "string"
+        }
+    },
     "location": {
       "type": "object",
       "additionalProperties": false,
@@ -337,6 +346,7 @@
   },
   "required": [
     "location",
-    "person"
+    "person",
+    "candidates"
   ]
 }
