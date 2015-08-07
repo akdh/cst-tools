@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/chosen/1.1.0/chosen.min.css">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-tagsinput.css">
     <style type="text/css">
         .bootstrap-tagsinput {
             width: 100%;
@@ -17,188 +19,94 @@
     </style>
 </head>
 <body>
-    <div class="modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p>You are invited to participate in a research study conducted by Adriel Dean-Hall, under the supervision of Charles Clarke in the School of Computer Science in the University of Waterloo, Canada. The data collected will be helpful in comparing search engines.</p>
-                    <p>If you decide to volunteer, you will be asked to complete an online survey.  Survey questions focus is on rating of your interest in various attractions. Participation in this study is voluntary. You may decline to answer any questions that you do not wish to answer and you can withdraw your participation at any time by not submitting your responses.  There are no known or anticipated risks from participating in this study.</p>
-                    <p>It is important for you to know that any information that you provide will be confidential. Furthermore, the web site is programmed to collect responses alone and will not collect any information that could potentially identify you (such as machine identifiers).</p>
-                    <p>This survey uses Amazon Mechanical Turk which is a United States of America company. Consequently, USA authorities under provisions of the Patriot Act may access this survey data.</p>
-                    <p>The data collected from this study will be maintained on a password-protected computer database in a restricted access area of the university. Additionally, the data, with no personal identifiers, collected from this study will be released into the public domain to other researchers.</p>
-                    <p>You may decline to answer any questions that you do not wish to answer and you can withdraw your participation at any time by ceasing to answer questions, without penalty or loss of remuneration. To receive remuneration please proceed to the end of the questionnaire and submit it.</p>
-                    <p>Should you have any questions about the study, please contact either Adriel Dean-Hall (adeanhal@uwaterloo.ca) or Charles Clarke (claclark@plg.uwaterloo.ca). Further, if you would like to receive a copy of the results of this study, please contact either investigator.</p>
-                    <p>I would like to assure you that this study has been reviewed and received ethics clearance through a University of Waterloo Research Ethics Committee. However, the final decision about participation is yours. If you have any comments or concerns resulting from your participation in this study, please feel free to contact Dr. Maureen Nummelin, the Director, Office of Research Ethics, at 1-519-888-4567, Ext. 36005 or maureen.nummelin@uwaterloo.ca.</p>
-                    <p>By participating in the study you agree to let us contact you through via the Mechanical Turk messaging system when further rounds of this study are available. However, this does not oblige you to participate in further rounds of the study.</p>
-                    <p>Thank you for considering participation in this study.</p>
+    <div class="container-fluid">
+        <div>
+            <h1>Places to try</h1>
+            <form name="mturk_form" id="mturk_form" method="post" action="https://www.mturk.com/mturk/externalSubmit">
+            <input type="hidden" name="assignmentId" id="assignmentId">
+            <input type="hidden" name="start_ts">
+            {{#documents}}
+            <div>
+                <input type="hidden" name="item{{ index }}_rating_ts">
+                <input type="hidden" name="item{{ index }}_tags_ts">
+                <input type="hidden" name="item{{ index }}_docid" value="{{ id }}">
+                <h2><a href="{{ url }}" target="_blank">{{ title }}</a></h2>
+                <p>{{ description }}</p>
+                <p><a href="{{ url }}" target="_blank">{{ url }}</a></p>
+                <fieldset>
+                <legend>Rating</legend>
+                <div class="btn-group form-group" data-toggle="buttons">
+                    <label class="btn btn-default">
+                        <input type="radio" value="1" name="item{{ index }}_rating"> 1
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" value="2" name="item{{ index }}_rating"> 2
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" value="3" name="item{{ index }}_rating"> 3
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" value="4" name="item{{ index }}_rating"> 4
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" value="5" name="item{{ index }}_rating"> 5
+                    </label>
                 </div>
-                <div class="modal-footer">
-                    <p><button type="button" class="btn btn-default" data-dismiss="modal">I agree to participate.</button></p>
-                    <p><button type="button" class="btn btn-default">I do not wish to participate (please close your web browser now).</button></p>
+                </fieldset>
+                <div class="form-group">
+                    <label for="item{{ index }}_tags">Tags <a href="" data-toggle="modal" data-target="#tagsHelp">[?]</a></label>
+                    <select multiple name="item{{ index }}_tags" id="item{{ index }}_tags" class="typeahead from-control"></select>
+                </div>
+            </div>
+            {{/documents}}
+            <input type="submit" value="Submit" class="btn btn-default">
+            </form>
+        </div>
+        <div class="modal" id="tagsHelp" tabindex="-1" role="dialog" aria-labelledby="tagsHelpLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="tagsHelpLabel">Tags</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Add any of the following tags for reasons you like this attraction.</p>
+                        <ul>
+                        {{#tags}}
+                        <li>{{ . }}</li>
+                        {{/tags}}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <h1>Places to try in {{ location.name }}, {{ location.state }}</h1>
-        <p class="lead">Look at each of these attractions and rate them based on how interested <strong>you</strong> find them. The ratings are from 1 - uninteresting to 5 - interesting. You can also add some tags highlighting what you think is noteworthy about each attraction. To add tags click on the tags text field and select from the drop-down list.</p>
-        <form name="mturk_form" id="mturk_form" method="post" action="https://www.mturk.com/mturk/externalSubmit">
-            <input type="hidden" name="assignmentId" id="assignmentId">
-            <input type="hidden" name="start_ts">
-            <div id="documents"></div>
-            <p class="lead">The following questions are optional. We may contact you in the coming weeks to rate more attractions. If you fill in the following fields we will be able to make better suggestions for you.</p>
-            <div class="form-group">
-                <label for="gender">Your gender</label>
-                <input type="text" class="form-control" name="gender" id="gender">
-            </div>
-            <div class="form-group">
-                <label for="age">Your age</label>
-                <input type="number" class="form-control" name="age" id="age">
-            </div>
-            <div class="form-group">
-                <label for="duration">The length of a trip you might take</label>
-                <select class="form-control" name="duration" id="duration">
-                <option value=""></option>
-                {% for item in duration %}
-                    <option value="{{ item }}">{{ item }}</option>
-                {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="trip_type">The type of trip you might take</label>
-                <select class="form-control" name="trip_type" id="trip_type">
-                <option value=""></option>
-                {% for item in trip_type %}
-                    <option value="{{ item }}">{{ item }}</option>
-                {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="season">The season during you might take a trip</label>
-                <select class="form-control" name="season" id="season">
-                <option value=""></option>
-                {% for item in season %}
-                    <option value="{{ item }}">{{ item }}</option>
-                {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="group">The type of group you might take a trip with</label>
-                <select class="form-control" name="group" id="group">
-                <option value=""></option>
-                {% for item in group %}
-                    <option value="{{ item }}">{{ item }}</option>
-                {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="location">The city which you might take a trip to</label>
-                <select class="form-control" name="location" id="location">
-                <option value=""></option>
-                {% for location in locations %}
-                    <option value="{{ location.id }}">{{ location.name }}, {{ location.state }}</option>
-                {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="comments">Comments</label>
-                <textarea class="form-control" id="comments" name="comments"></textarea>
-            </div>
-            <div id="errors"></div>
-            <input type="submit" id="submit" value="Submit" disabled class="btn btn-default">
-        </form>
-    </div>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/chosen/1.1.0/chosen.jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.2/mustache.min.js"></script>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-tagsinput.min.js"></script>
+    <script src="js/bootstrap3-typeahead.min.js"></script>
     <script type='text/javascript' src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script>
     <script>
-       var docCookies={getItem:function(e){return e&&this.hasItem(e)?unescape(document.cookie.replace(RegExp("(?:^|.*;\\s*)"+escape(e).replace(/[\-\.\+\*]/g,"\\$&")+"\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*"),"$1")):null},setItem:function(e,t,i,n,a,s){if(e&&!/^(?:expires|max\-age|path|domain|secure)$/i.test(e)){var r="";if(i)switch(i.constructor){case Number:r=1/0===i?"; expires=Tue, 19 Jan 2038 03:14:07 GMT":"; max-age="+i;break;case String:r="; expires="+i;break;case Date:r="; expires="+i.toGMTString()}document.cookie=escape(e)+"="+escape(t)+r+(a?"; domain="+a:"")+(n?"; path="+n:"")+(s?"; secure":"")}},removeItem:function(e,t){e&&this.hasItem(e)&&(document.cookie=escape(e)+"=; expires=Thu, 01 Jan 1970 00:00:00 GMT"+(t?"; path="+t:""))},hasItem:function(e){return RegExp("(?:^|;\\s*)"+escape(e).replace(/[\-\.\+\*]/g,"\\$&")+"\\s*\\=").test(document.cookie)},keys:function(){for(var e=document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g,"").split(/\s*(?:\=[^;]*)?;\s*/),t=0;e.length>t;t++)e[t]=unescape(e[t]);return e}};
+        $(".typeahead").tagsinput({
+            typeahead: {
+                minLength: 0,
+                showHintOnFocus: true,
+                displayText: function(item) {
+                    return item;
+                },
+                source: {{{raw_tags}}}
+            },
+            freeInput: false
+        });
     </script>
-    <script>turkSetAssignmentID();</script>
     <script>
-        {% raw %}
-        var template = '{{#documents}}' +
-            '<input type="hidden" name="{{ id }}_vote_ts">' +
-            '<input type="hidden" name="{{ id }}_tags_ts">' +
-            '<h2 id="{{ id }}"><a href="{{ url }}" target="_blank">{{{ title }}}</a></h2>' +
-            '<p>{{{ desc }}}</p>' +
-            '<p><a href="{{ url }}" target="_blank">{{ url }}</a></p>' +
-            '<fieldset class="fieldset">' +
-            '    <legend>Rating</legend>' +
-            '    <div class="btn-group form-group" data-toggle="buttons">' +
-            '        <label class="btn btn-default"><input type="radio" value="-1" name="{{ id }}_vote"> Unable to load</label>' +
-            '        <label class="btn btn-default"><input type="radio" value="1" name="{{ id }}_vote"> 1 (Uninteresting)</label>' +
-            '        <label class="btn btn-default"><input type="radio" value="2" name="{{ id }}_vote"> 2</label>' +
-            '        <label class="btn btn-default"><input type="radio" value="3" name="{{ id }}_vote"> 3</label>' +
-            '        <label class="btn btn-default"><input type="radio" value="4" name="{{ id }}_vote"> 4</label>' +
-            '        <label class="btn btn-default"><input type="radio" value="5" name="{{ id }}_vote" data-parsley-errors-container=".fieldset" required> 5 (Interesting)</label>' +
-            '    </div>' +
-            '</fieldset>' +
-            '<div class="form-group">' +
-            '    <label for="{{ id }}_tags">Tags</label>' +
-            '    <select multiple name="{{ id }}_tags" id="{{ id }}_tags" class="from-control" data-placeholder="Add some tags...">' +
-            '    {{#tags}}' +
-            '    <option value="{{ . }}">{{ . }}</option>' +
-            '    {{/tags}}' +
-            '    </select>' +
-            '</div>' +
-            '{{/documents}}'
-        {% endraw %}
-
-        var tags = {{ tags }}
-        var documents = {{ documents }}
-
         $(function(){
-            $('.modal').on('hidden.bs.modal', function() {
-                docCookies.setItem("ore_notice", "1", 2592000)
-            })
-            if($("#assignmentId").val() !== "ASSIGNMENT_ID_NOT_AVAILABLE" && !docCookies.hasItem("ore_notice")) {
-                $('.modal').modal('show')
-            }
-
-            $('#documents').html(Mustache.render(template, {documents: documents, tags: tags}));
-            $('select[multiple]').chosen()
             $('input[name=start_ts]').val((new Date()).toUTCString());
             $('input, select').change(function() {
                 $('input[name=' + $(this).attr('name') + '_ts]').val((new Date()).toUTCString());
             })
-            $('#submit').prop('disabled', false)
-
-            $('#submit').click(function(event) {
-                var unrated = []
-                // Required rating fields
-                $('input[required]').each(function() {
-                    var name = $(this).attr('name')
-                    if($('input[name='+name+']:checked').length === 0) {
-                        var id = name.substr(0, 19)
-                        var text = $('#'+id).text()
-                        unrated.push('<p><a href="#'+id+'">'+text+'</a></p>')
-                    }
-                })
-                // Tags
-                var total_tags_length = 0
-                $('select[multiple]').each(function() {
-                    if($(this).val() !== null) {
-                        total_tags_length += $(this).val().length
-                    }
-                })
-                // Display any errors
-                if(unrated.length !== 0 || total_tags_length < 5) {
-                    event.preventDefault()
-                    var errors = '<div class="bg-warning" style="padding:15px">'
-                    if(errors !== '') {
-                        errors += '<p>You didn\'t rate the following items, are you sure you want to submit?</p>' + unrated.join('')
-                    }
-                    if(total_tags_length < 5) {
-                        errors += '<p>You only added '+total_tags_length+' tag(s) for all attractions, are you sure you want to submit?</p>'
-                    }
-                    errors += '<p><input type="submit" value="Submit anyway" class="btn btn-default"></p></div>'
-                    $('#errors').html(errors)
-                }
-            })
         })
     </script>
+    <script>turkSetAssignmentID();</script>
 </body>
 </html>

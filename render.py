@@ -1,14 +1,14 @@
 import pystache, csv, json, sqlite3, sys
 
 if len(sys.argv) != 2:
-    print('usage: %s SUGGESTIONS')
+    print('usage: %s SUGGESTIONS' % sys.argv[0])
     exit()
 
 suggestions_filename = sys.argv[1]
 
 with open('tags.csv') as f:
     reader = csv.reader(f)
-    tags = [row[1] for row in reader]
+    tags = [row[1].decode('utf-8') for row in reader]
 
 with open(suggestions_filename) as f:
     data = json.loads(f.read())
@@ -20,12 +20,12 @@ cur = conn.cursor()
 rows = []
 for index in range(len(data['suggestions'])):
     id = data['suggestions'][index]
-    cur.execute('select id, title, url, description from docs where id = ?', (id, ))
+    cur.execute('SELECT id, title, url FROM docs WHERE id = ?', (id, ))
     row = dict(cur.fetchone())
     row['index'] = index
-    rows.append(rows)
+    rows.append(row)
 
 conn.close()
 
 with open('templates/suggestions.html') as f:
-    print(pystache.render(f.read(), {'tags': tags, 'raw_tags': json.dumps(tags), 'documents': rows}))
+    print(pystache.render(f.read(), {'tags': tags, 'raw_tags': json.dumps(tags), 'documents': rows}).encode('utf-8'))
